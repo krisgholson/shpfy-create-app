@@ -12,9 +12,12 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
   switch (topic) {
     case "APP_UNINSTALLED":
+      console.log("KG DEBUG APP_UNINSTALLED")
       if (session) {
+        console.log("KG DEBUG DELETE SESSIONS")
         await db.session.deleteMany({ where: { shop } });
       }
+      console.log("KG DEBUG DONE APP_UNINSTALLED")
 
       break;
     case "CUSTOMERS_DATA_REQUEST":
